@@ -1,0 +1,61 @@
+{
+  "name": "sav-tools-standalone",
+  "version": "0.0.1",
+  "description": "util library for savjs",
+  "main": "dist/sav-tools-standalone.js",
+  "scripts": {
+    "start": "watch -p \"+(test|src)/*.js\" -c \"npm run lint -- --fix && npm test\"",
+    "build": "rollup -c",
+    "lint": "standard rollup.config.js test/** src/**",
+    "na": "nyc ava ./test",
+    "pretest": "npm run lint",
+    "test": "npm run na",
+    "prepare": "npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/savjs/sav-tools-standalone.git"
+  },
+  "author": {
+    "name": "jetiny",
+    "email": "86287344@qq.com"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/savjs/sav-tools-standalone/issues"
+  },
+  "devDependencies": {
+    "ava": "latest",
+    "babel-core": "latest",
+    "babel-eslint": "latest",
+    "babel-plugin-transform-es2015-modules-commonjs": "latest",
+    "babel-plugin-transform-object-rest-spread": "latest",
+    "chai": "latest",
+    "eslint-plugin-standard": "latest",
+    "expect.js": "latest",
+    "nyc": "latest",
+    "rollup": "latest",
+    "rollup-plugin-babel": "latest",
+    "standard": "latest",
+    "watch-cli": "latest"
+  },
+  "standard": {
+    "parser": "babel-eslint"
+  },
+  "nyc": {
+    "exclude": [
+      "node_modules",
+      "test"
+    ]
+  },
+  "ava": {
+    "require": "babel-register",
+    "babel": "inherit"
+  },
+  "babel": {
+    "plugins": [
+      "transform-es2015-modules-commonjs"
+    ]
+  },
+  "homepage": "https://github.com/savjs/sav-tools-standalone#readme"
+}
